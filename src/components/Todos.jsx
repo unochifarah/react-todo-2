@@ -4,17 +4,20 @@ import TodoItem from './TodoItem'
 const Todos = ({ todos, toggleCompleted, deleteTodo }) => {
   return(
     <div style={styles.container}>
-       {todos.map((todo) => {
-        // Berikan datanya ke TodoItem
+      {todos.length === 0 ? (
+        <p>You're free from todo list!</p>
+      ) : (
+        todos.map((todo) => {
           return (
             <TodoItem 
-                key={todo.id} 
-                todo={todo} 
-                toggleCompleted={toggleCompleted}
-                deleteTodo={deleteTodo}
+              key={todo.id} 
+              todo={todo} 
+              toggleCompleted={toggleCompleted}
+              deleteTodo={deleteTodo}
             />
-          ) 
-      })}
+          )
+        })
+      )}
     </div>
   )
 }
